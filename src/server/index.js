@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.json({ entended: true }));
 
-// app.use('/', express.static(path.join(__dirname, '../client/public')));
+app.use('/', express.static(path.join(__dirname, '../../build')));
 
 // ----- Setup routes ------
 app.use('/', router);

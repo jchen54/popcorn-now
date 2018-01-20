@@ -2,12 +2,13 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Redux actions imports
-import * as movieListActionCreators from '../../../action-creators/movie-list/movieListActions'
+import * as movieListActionCreators from '../../../action-creators/movie-list/movieListActions';
 import MovieList from '../MovieList.js';
 
 const mapStateToProps = (state) => {
   return {
     movieListReducers: state.movieListReducers,
+    homeReducers: state.homeReducers,
   };
 };
 

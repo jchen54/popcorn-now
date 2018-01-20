@@ -1,18 +1,19 @@
 import actionTypes from './homeActionTypes';
 
-export function setAdminFoodItems(dataArr) {
-  return {
-    type: actionTypes.SET_ADMIN_FOOD_ITEMS,
-    dataArr,
-  };
-}
-
-export function setDownloadFile(dropoffID, dataType) {
+export function loadPopularMovies() {
   return async (dispatch) => {
-    try {
-      console.log('hi');
-    } catch (err) {
-      console.log(err);
-    }
-  };
+      let popularMovies = [];
+      try {
+        const response = await fetch('/movie/popular');
+        const responseData = await response.json();
+        popularMovies = responseData.movies;
+        console.log('popularMovies: ', popularMovies);
+      } catch (err) {
+        console.log(err);
+      }
+      return dispatch({
+        type: actionTypes.LOAD_POPULAR_MOVIES,
+        popularMovies,
+      });
+    };
 }
