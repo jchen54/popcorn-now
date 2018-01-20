@@ -1,15 +1,15 @@
 import actionTypes from '../action-creators/movie-list/movieListActionTypes.js';
 
 const initialState = {
-  deliveryEligibilityObj: {},
+  popularMovies: {},
 };
 
 const movieListReducers = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_DELIVERY_ELIGIBILITY_OBJ:
+    case actionTypes.LOAD_POPULAR_MOVIES:
       return {
         ...state,
-        deliveryEligibilityObj: action.obj,
+        popularMovies: action.popularMovies,
       };
     default:
       return state;

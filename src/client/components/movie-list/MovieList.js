@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const MovieList = (props) => {
-  return (
-    <div>
-      <div className="row">
-        <div className="four columns">Four</div>
-        <div className="four columns">Four</div>
-        <div className="four columns">Four</div>
+class MovieList extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  // componentDidMount() {
+  //   this.props.loadPopularMovies();
+  // }
+
+  render() {
+    return (
+      <div>
+        <div className="row">
+          <div className="four columns">Four</div>
+          <div className="four columns">Four</div>
+          <div className="four columns">Four</div>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default MovieList;

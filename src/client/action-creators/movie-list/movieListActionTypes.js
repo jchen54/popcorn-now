@@ -1,5 +1,5 @@
 const actionTypes = {
-  SELECT_DASHBOARD_PAGE: 'SELECT_DASHBOARD_PAGE',
+  LOAD_POPULAR_MOVIES: 'LOAD_POPULAR_MOVIES',
 };
 
 export default actionTypes;

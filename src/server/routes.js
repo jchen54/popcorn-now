@@ -3,6 +3,6 @@ const path = require('path');
 const router = require('express').Router();
 const controller = require('./controllers');
 
-router.get('/movies', controller.movies.get);
+router.get('/movie/popular', controller.popularMovies.get);
 
 module.exports = router;

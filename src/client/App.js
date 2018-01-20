@@ -8,16 +8,14 @@ import './raleway.css';
 import './skeleton.css';
 import HomeContainer from './components/home/containers/HomeContainer.js';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Switch>
-          <Route exact path="/" component={HomeContainer}/>
-        </Switch>
-      </div>
-    );
-  }
-}
+const App = (props) => {
+  return (
+    <div className="container">
+      <Switch>
+        <Route exact path="/" component={HomeContainer}/>
+      </Switch>
+    </div>
+  );
+};
 
 export default App;
