@@ -7,7 +7,7 @@ const MovieList = (props) => {
         return (
           <div className="row" key={`movie ${i}`}>
             <div className="five columns">
-              <img src="http://image.tmdb.org/t/p/w185/bXrZ5iHBEjH7WMidbUDQ0U2xbmr.jpg" />
+              <img src={`${props.homeReducers.tmdbSecureBaseUrl}/${props.homeReducers.tmdbPosterSizes[2]}/${movie.poster_path}`} />
             </div>
             <div className="four columns">{movie.title}</div>
             <div className="one column">{movie.release_date.slice(0, 4)}</div>

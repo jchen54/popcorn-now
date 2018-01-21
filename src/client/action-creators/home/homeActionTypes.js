@@ -1,5 +1,7 @@
 const actionTypes = {
+  LOAD_TMDB_CONFIG: 'LOAD_TMDB_CONFIG',
   LOAD_POPULAR_MOVIES: 'LOAD_POPULAR_MOVIES',
+  SELECT_FILTER: 'SELECT_FILTER',
 };
 
 export default actionTypes;
