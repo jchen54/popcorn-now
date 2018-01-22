@@ -32,13 +32,18 @@ module.exports = {
       });
     },
   },
-  popularMovies: {
+  movies: {
     async get(req, res) {
       let movies = [];
       try {
         const response = await fetch(`https://api.themoviedb.org/3/movie/popular?${queryString.stringify(reqParams)}`);
         const responseData = await response.json();
         movies = responseData.results;
+        movies = movies.map((movie) => {
+          const movieCopy = Object.assign({}, movie);
+          movieCopy.release_year = Number(movie.release_date.slice(0, 4));
+          return movieCopy;
+        })
       } catch (err) {
         console.log(err);
       }

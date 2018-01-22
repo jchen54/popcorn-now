@@ -4,7 +4,8 @@ const initialState = {
   tmdbPosterSizes: [],
   tmdbSecureBaseUrl: '',
   filterSelected: '',
-  popularMovies: [],
+  movies: [],
+  movieSearchMatches: [],
 };
 
 const movieListReducers = (state = initialState, action) => {
@@ -20,10 +21,15 @@ const movieListReducers = (state = initialState, action) => {
         ...state,
         filterSelected: action.filterSelected,
       };
-    case actionTypes.LOAD_POPULAR_MOVIES:
+    case actionTypes.LOAD_MOVIES:
       return {
         ...state,
-        popularMovies: action.popularMovies,
+        movies: action.movies,
+      };
+    case actionTypes.LIST_MOVIES:
+      return {
+        ...state,
+        movieSearchMatches: action.movieSearchMatches,
       };
     default:
       return state;

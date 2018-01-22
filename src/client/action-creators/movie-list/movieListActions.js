@@ -1,6 +1,6 @@
 import actionTypes from './movieListActionTypes';
 
-// export function loadPopularMovies() {
+// export function loadMovies() {
 //   return async (dispatch) => {
 //       let routes = [];
 //       try {

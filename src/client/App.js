@@ -9,8 +9,13 @@ import './skeleton.css';
 import HomeContainer from './components/home/containers/HomeContainer.js';
 
 const App = (props) => {
+  const styles = {
+    container: {
+      backgroundColor: 'rgb(239, 237, 237)',
+    }
+  };
   return (
-    <div className="container">
+    <div className="container" style={styles.container}>
       <Switch>
         <Route exact path="/" component={HomeContainer}/>
       </Switch>

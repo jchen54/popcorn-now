@@ -1,16 +1,20 @@
 import React from 'react';
+import Radium from 'radium';
 
 const MovieList = (props) => {
+  let renderedMovies = props.homeReducers.movies;
+  if (props.homeReducers.movieSearchMatches.length) {
+    renderedMovies = props.homeReducers.movieSearchMatches;
+  }
   return (
     <div>
-      {props.homeReducers.popularMovies.map((movie, i) => {
+      {renderedMovies.map((movie, i) => {
         return (
           <div className="row" key={`movie ${i}`}>
-            <div className="five columns">
+            <a href="javascript:void(0);" className="four columns">
               <img src={`${props.homeReducers.tmdbSecureBaseUrl}/${props.homeReducers.tmdbPosterSizes[2]}/${movie.poster_path}`} />
-            </div>
-            <div className="four columns">{movie.title}</div>
-            <div className="one column">{movie.release_date.slice(0, 4)}</div>
+            </a>
+            <a href="javascript:void(0);" className="four columns">{movie.title} ({movie.release_year})</a>
             <div className="two columns">{movie.vote_average}</div>
           </div>
         )

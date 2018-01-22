@@ -22,41 +22,50 @@ export function loadTmdbConfig() {
     };
 }
 
-export function selectFilter(filterSelected, popularMovies) {
+export function selectFilter(filterSelected, movies) {
   const filters = {
     popularity: 'vote_count',
     rating: 'vote_average',
     releaseDate: 'release_date',
   };
-  popularMovies.sort((a, b) => {
+  movies.sort((a, b) => {
+    let movieA = a[filters[filterSelected]];
+    let movieB = b[filters[filterSelected]];
     if (filterSelected === 'releaseDate') {
-      return b[filters[filterSelected]].slice(0, 4) - a[filters[filterSelected]].slice(0, 4);
-    } else {
-      return b[filters[filterSelected]] - a[filters[filterSelected]];
+      movieA = new Date(movieA);
+      movieB = new Date(movieB);
     }
+    return movieB - movieA;
   });
   console.log('filterSelected: ', filterSelected);
   return {
     type: actionTypes.SELECT_FILTER,
     filterSelected,
-    popularMovies,
+    movies,
   };
 }
 
-export function loadPopularMovies() {
+export function loadMovies() {
   return async (dispatch) => {
-      let popularMovies = [];
-      try {
-        const response = await fetch('/movie/popular');
-        const responseData = await response.json();
-        popularMovies = responseData.movies.sort((a, b) => b.vote_count - a.vote_count);
-        console.log('popularMovies: ', popularMovies);
-      } catch (err) {
-        console.log(err);
-      }
-      return dispatch({
-        type: actionTypes.LOAD_POPULAR_MOVIES,
-        popularMovies,
-      });
-    };
+    let movies = [];
+    try {
+      const response = await fetch('/movie');
+      const responseData = await response.json();
+      movies = responseData.movies.sort((a, b) => b.vote_count - a.vote_count);
+      console.log('movies: ', movies);
+    } catch (err) {
+      console.log(err);
+    }
+    return dispatch({
+      type: actionTypes.LOAD_MOVIES,
+      movies,
+    });
+  };
+}
+
+export function listMovies(movieSearchMatches) {
+  return {
+    type: actionTypes.LIST_MOVIES,
+    movieSearchMatches,
+  };
 }
