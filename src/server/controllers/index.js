@@ -12,7 +12,6 @@ const initialize = () => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/configuration?${queryString.stringify(reqAuthParams)}`);
       tmdbConfig = await response.json();
-      console.log('tmdbConfig: ', tmdbConfig);
     } catch (err) {
       console.log(err);
     }
