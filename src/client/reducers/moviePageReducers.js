@@ -1,15 +1,15 @@
-import actionTypes from '../action-creators/search-bar/searchBarActionTypes.js';
+import actionTypes from '../action-creators/movie-page/moviePageActionTypes.js';
 
 const initialState = {
-  deliveryEligibilityObj: {},
+  videos: [],
 };
 
 const movieListReducers = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_DELIVERY_ELIGIBILITY_OBJ:
+    case actionTypes.LOAD_VIDEOS:
       return {
         ...state,
-        deliveryEligibilityObj: action.obj,
+        videos: action.videos,
       };
     default:
       return state;

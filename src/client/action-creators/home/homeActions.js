@@ -3,11 +3,13 @@ import actionTypes from './homeActionTypes';
 export function loadTmdbConfig() {
   return async (dispatch) => {
       let tmdbPosterSizes = [];
+      let tmdbBackdropSizes = [];
       let tmdbSecureBaseUrl = '';
       try {
         const response = await fetch('/image/config');
         const responseData = await response.json();
         tmdbPosterSizes = responseData.posterSizes;
+        tmdbBackdropSizes = responseData.backdropSizes;
         tmdbSecureBaseUrl = responseData.secureBaseUrl;
         console.log('tmdbPosterSizes: ', tmdbPosterSizes);
         console.log('tmdbSecureBaseUrl: ', tmdbSecureBaseUrl);
@@ -17,6 +19,7 @@ export function loadTmdbConfig() {
       return dispatch({
         type: actionTypes.LOAD_TMDB_CONFIG,
         tmdbPosterSizes,
+        tmdbBackdropSizes,
         tmdbSecureBaseUrl,
       });
     };

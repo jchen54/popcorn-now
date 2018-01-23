@@ -2,6 +2,7 @@ import actionTypes from '../action-creators/home/homeActionTypes.js';
 
 const initialState = {
   tmdbPosterSizes: [],
+  tmdbBackdropSizes: [],
   tmdbSecureBaseUrl: '',
   filterSelected: '',
   movies: [],
@@ -14,6 +15,7 @@ const movieListReducers = (state = initialState, action) => {
       return {
         ...state,
         tmdbPosterSizes: action.tmdbPosterSizes,
+        tmdbBackdropSizes: action.tmdbBackdropSizes,
         tmdbSecureBaseUrl: action.tmdbSecureBaseUrl,
       };
     case actionTypes.SELECT_FILTER:
