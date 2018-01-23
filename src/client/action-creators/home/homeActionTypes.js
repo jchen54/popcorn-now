@@ -3,6 +3,7 @@ const actionTypes = {
   LOAD_MOVIES: 'LOAD_MOVIES',
   SELECT_FILTER: 'SELECT_FILTER',
   LIST_MOVIES: 'LIST_MOVIES',
+  RESET_MATCHES: 'RESET_MATCHES',
 };
 
 export default actionTypes;

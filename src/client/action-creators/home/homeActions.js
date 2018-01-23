@@ -72,3 +72,10 @@ export function listMovies(movieSearchMatches) {
     movieSearchMatches,
   };
 }
+
+export function resetMatches() {
+  return {
+    type: actionTypes.LIST_MOVIES,
+    movieSearchMatches: [],
+  };
+}

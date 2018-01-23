@@ -33,6 +33,11 @@ const movieListReducers = (state = initialState, action) => {
         ...state,
         movieSearchMatches: action.movieSearchMatches,
       };
+    case actionTypes.RESET_MATCHES:
+      return {
+        ...state,
+        movieSearchMatches: action.movieSearchMatches,
+      };
     default:
       return state;
   }

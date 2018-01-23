@@ -8,7 +8,7 @@ import {
 import './skeleton.css';
 import HomeContainer from './components/home/containers/HomeContainer.js';
 import MoviePageContainer from './components/movie-page/containers/MoviePageContainer.js';
-import Header from './components/header/Header.js';
+import HeaderContainer from './components/header/containers/HeaderContainer.js';
 
 const App = (props) => {
   const styles = {
@@ -22,7 +22,7 @@ const App = (props) => {
   };
   return (
     <div className="container" style={styles.container}>
-      <Header />
+      <HeaderContainer />
       <div style={styles.main}>
         <Switch>
           <Route exact path="/" component={HomeContainer} />

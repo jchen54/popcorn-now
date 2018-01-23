@@ -23,7 +23,7 @@ const Header = (props) => {
   return (
     <div className="row" style={styles.topBar}>
       <div className="four columns">
-        <Link to="/">
+        <Link to="/" onClick={() => { props.resetMatches() }}>
           <img src={popcornLogo} alt="Popcorn Now Logo" height="50" width="50" style={styles.logo}/>
           <h5 style={styles.logoName}>Popcorn Now</h5>
         </Link>
